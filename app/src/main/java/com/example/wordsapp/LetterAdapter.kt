@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
 import androidx.annotation.RequiresApi
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wordsapp.WordListFragment.Companion.LETTER
 
@@ -69,16 +70,10 @@ class LetterAdapter :
 
         // Assigns a [OnClickListener] to the button contained in the [ViewHolder]
         holder.button.setOnClickListener {
-            val context = holder.view.context
-            // Create an intent with a destination of DetailActivity
-            val intent = Intent(context, DetailActivity::class.java)
-            // Add the selected letter to the intent as extra data
-            // The text of Buttons are [CharSequence], a list of characters,
-            // so it must be explicitly converted into a [String].
-            intent.putExtra(WordListFragment.LETTER, holder.button.text.toString())
-            // Start an activity using the data and destination from the Intent.
-            context.startActivity(intent)
+            val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())
+            holder.view.findNavController().navigate(action)
         }
+
     }
 
     // Setup custom accessibility delegate to set the text read with
