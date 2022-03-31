@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wordsapp.databinding.ActivityDetailBinding
 
 
-class DetailActivity : AppCompatActivity() {
+class PreDetailActivity : AppCompatActivity() {
     /**
      * Provides global access to these variables from anywhere in the app
      * via DetailActivity.<variable> without needing to create

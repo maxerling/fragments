@@ -24,10 +24,11 @@ import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wordsapp.WordListFragment.Companion.LETTER
 
 
 /**
- * Adapter for the [RecyclerView] in [MainActivity].
+ * Adapter for the [RecyclerView] in [LetterListFragment].
  */
 class LetterAdapter :
     RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
@@ -74,7 +75,7 @@ class LetterAdapter :
             // Add the selected letter to the intent as extra data
             // The text of Buttons are [CharSequence], a list of characters,
             // so it must be explicitly converted into a [String].
-            intent.putExtra(DetailActivity.LETTER, holder.button.text.toString())
+            intent.putExtra(WordListFragment.LETTER, holder.button.text.toString())
             // Start an activity using the data and destination from the Intent.
             context.startActivity(intent)
         }
